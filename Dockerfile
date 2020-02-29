@@ -83,7 +83,7 @@ RUN git clone --branch=${TF_SERVING_VERSION_GIT_BRANCH} https://github.com/tenso
     if [ "${TF_SERVING_VERSION_GIT_COMMIT}" != "head" ]; then git checkout ${TF_SERVING_VERSION_GIT_COMMIT} ; fi
 
 
-FROM base_build as binary_build
+#FROM base_build as binary_build
 # Build, and install TensorFlow Serving
 ARG TF_SERVING_BUILD_OPTIONS="--config=nativeopt"
 RUN echo "Building with build options: ${TF_SERVING_BUILD_OPTIONS}"
@@ -112,7 +112,7 @@ RUN bazel build --color=yes --curses=yes \
     /tmp/pip/tensorflow_serving_api-*.whl && \
     rm -rf /tmp/pip
 
-FROM binary_build as clean_build
+# FROM binary_build as clean_build
 # Clean up Bazel cache when done.
 RUN bazel clean --expunge --color=yes && \
     rm -rf /root/.cache
