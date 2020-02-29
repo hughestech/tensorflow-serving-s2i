@@ -97,10 +97,11 @@ RUN git clone --recurse-submodules --branch=${TF_SERVING_VERSION_GIT_BRANCH} htt
 # Build, and install TensorFlow Serving
 ARG TF_SERVING_BUILD_OPTIONS="--config=nativeopt"
 RUN echo "Building with build options: ${TF_SERVING_BUILD_OPTIONS}"
-ARG TF_SERVING_BAZEL_OPTIONS="--cxxopt=\"-D_GLIBCXX_USE_CXX11_ABI=0\""
+#ARG TF_SERVING_BAZEL_OPTIONS="--cxxopt=\"-D_GLIBCXX_USE_CXX11_ABI=0\""
+ARG TF_SERVING_BAZEL_OPTIONS=""
 RUN echo "Building with Bazel options: ${TF_SERVING_BAZEL_OPTIONS}"
 
-RUN bazel build --color=yes --curses=yes \
+RUN bazel build --color=yes --curses=yes --cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0" \
     ${TF_SERVING_BAZEL_OPTIONS} \
     --verbose_failures \
     --output_filter=DONT_MATCH_ANYTHING \
@@ -110,7 +111,7 @@ RUN bazel build --color=yes --curses=yes \
     /usr/local/bin/
 
 # Build and install TensorFlow Serving API
-RUN bazel build --color=yes --curses=yes \
+RUN bazel build --color=yes --curses=yes --cxxopt="-D_GLIBCXX_USE_CXX11_ABI=0" \
     ${TF_SERVING_BAZEL_OPTIONS} \
     --verbose_failures \
     --output_filter=DONT_MATCH_ANYTHING \
