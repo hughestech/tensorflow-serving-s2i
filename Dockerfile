@@ -28,8 +28,10 @@ RUN yum install -y epel-release centos-release-scl devtoolset-8 && source scl_so
 #RUN source scl_source enable devtoolset-8
 RUN scl enable devtoolset-8 bash
 
-ENV CC=/opt/rh/devtoolset-8/root/usr/bin/gcc
-ENV CXX=/opt/rh/devtoolset-/root/usr/bin/g++
+ENV HOME=/opt/app-root/src \
+    PATH=/opt/app-root/src/bin:/opt/app-root/bin:/opt/rh/devtoolset-8/root/usr/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+#ENV CC=/opt/rh/devtoolset-8/root/usr/bin/gcc
+#ENV CXX=/opt/rh/devtoolset-/root/usr/bin/g++
 #ENV GCC_VERSION=9.2.0
 #RUN yum -y update && yum -y install bzip2 wget gcc gcc-c++ gmp-devel mpfr-devel libmpc-devel make
 #RUN gcc --version
