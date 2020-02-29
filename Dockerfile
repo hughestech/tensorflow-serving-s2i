@@ -48,6 +48,7 @@ RUN yum install -y tree which wget \
         "Development Tools" \
         ca-certificates \
         curl \
+	libtool \
         git \
         curl-devel \
         freetype-devel \
