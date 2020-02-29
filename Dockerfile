@@ -1,6 +1,6 @@
 FROM centos/s2i-base-centos7
 
-MAINTAINER Subin Modeel smodeel@redhat.com
+MAINTAINER Anton Hughes anton.hughes@priceinsight.trade
 
 ENV BUILDER_VERSION 2.0
 
@@ -23,7 +23,9 @@ LABEL tensorflow_serving_github_branchtag=${TF_SERVING_VERSION_GIT_BRANCH}
 LABEL tensorflow_serving_github_commit=${TF_SERVING_VERSION_GIT_COMMIT}
 
 
-RUN yum install -y epel-release
+RUN yum install -y epel-release centos-release-scl devtoolset-7 && source scl_source enable devtoolset-7
+#RUN scl enable devtoolset-7 bash
+#RUN source scl_source enable devtoolset-7
 
 
 
