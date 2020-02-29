@@ -71,6 +71,15 @@ RUN yum install -y tree which wget devtoolset-8-toolchain \
 #	&& wget $TF_SERVING_PACKAGE -P /opt/app-root/ \
 #	&& chmod 777 /opt/app-root/tensorflow_model_server
 RUN ln -s /opt/rh/devtoolset-8/root/usr/bin/g++ /usr/local/bin/g++
+
+WORKDIR ${HOME}
+
+# Enable the SCL for all bash scripts.
+ENV BASH_ENV=/opt/app-root/etc/scl_enable \
+    ENV=/opt/app-root/etc/scl_enable \
+    PROMPT_COMMAND=". /opt/app-root/etc/scl_enable"
+    
+    
 RUN which gcc
 RUN gcc -v
 
