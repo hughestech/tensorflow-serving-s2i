@@ -49,9 +49,9 @@ RUN yum install -y tree which wget \
         zip \
         zlib1g-devel \
         python3-distutils \
-	&& yum clean all -y \
-	&& wget $TF_SERVING_PACKAGE -P /opt/app-root/ \
-	&& chmod 777 /opt/app-root/tensorflow_model_server
+	&& yum clean all -y 
+#	&& wget $TF_SERVING_PACKAGE -P /opt/app-root/ \
+#	&& chmod 777 /opt/app-root/tensorflow_model_server
 	
 	
 RUN curl -fSsL -O https://bootstrap.pypa.io/get-pip.py && \
