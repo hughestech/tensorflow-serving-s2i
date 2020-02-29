@@ -27,7 +27,8 @@ RUN yum install -y epel-release centos-release-scl devtoolset-7 && source scl_so
 #RUN scl enable devtoolset-7 bash
 #RUN source scl_source enable devtoolset-7
 
-
+ENV CC=/opt/rh/devtoolset-7/root/usr/bin/gcc
+ENV CXX=/opt/rh/devtoolset-7/root/usr/bin/g++
 
 
 RUN yum install -y tree which wget \
