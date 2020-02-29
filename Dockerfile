@@ -5,6 +5,8 @@ MAINTAINER Subin Modeel smodeel@redhat.com
 ENV BUILDER_VERSION 2.0
 
 ARG TF_SERVING_PORT=6006
+ARG AUTOCONF_VERSION=2.69
+ARG AUTOMAKE_VERSION=1.16
 ARG TF_SERVING_PACKAGE=https://github.com/sub-mod/mnist-app/releases/download/2017_tensorflow_model_server/tensorflow_model_server
 ENV TF_SERVING_PACKAGE $TF_SERVING_PACKAGE
 
@@ -23,18 +25,18 @@ LABEL tensorflow_serving_github_commit=${TF_SERVING_VERSION_GIT_COMMIT}
 
 RUN yum install -y epel-release
 
-RUN wget http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz \
-	&& gunzip autoconf-2.69.tar.gz \
-	&& tar xvf autoconf-2.69.tar \
-	&& cd autoconf-2.69 \
+RUN wget http://ftp.gnu.org/gnu/autoconf/autoconf-${AUTOCONF_VERSION}.tar.gz \
+	&& gunzip autoconf-${AUTOCONF_VERSION}.tar.gz \
+	&& tar xvf autoconf-${AUTOCONF_VERSION}.tar \
+	&& cd autoconf-${AUTOCONF_VERSION} \
 	&&  ./configure \
 	&& make \
 	&& make install \
 	&& autoconf --version
 	
-RUN wget http://ftp.gnu.org/gnu/automake/automake-1.14.tar.gz \
-	&& tar xvzf automake-1.14.tar.gz \ 
-	&& cd automake-1.14 \ 
+RUN wget http://ftp.gnu.org/gnu/automake/automake-${AUTOMAKE_VERSION}.tar.gz \
+	&& tar xvzf automake-${AUTOMAKE_VERSION}.tar.gz \ 
+	&& cd automake-${AUTOMAKE_VERSION} \ 
 	&& ./configure \ 
 	&& make \ 
 	&& make install \
