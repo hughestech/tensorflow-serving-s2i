@@ -88,7 +88,7 @@ RUN curl -fSsL -O https://bootstrap.pypa.io/get-pip.py && \
     python3 get-pip.py && \
     rm get-pip.py
 
-RUN pip3 --no-cache-dir install \
+RUN pip3 --no-cache-dir install glibc \
     future>=0.17.1 \
     grpcio \
     h5py \
