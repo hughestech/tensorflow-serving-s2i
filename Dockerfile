@@ -31,6 +31,7 @@ ENV CC=/opt/rh/devtoolset-7/root/usr/bin/gcc
 ENV CXX=/opt/rh/devtoolset-7/root/usr/bin/g++
 
 
+
 RUN yum install -y tree which wget \
 	python3 \
         "Development Tools" \
@@ -56,7 +57,10 @@ RUN yum install -y tree which wget \
 #	&& wget $TF_SERVING_PACKAGE -P /opt/app-root/ \
 #	&& chmod 777 /opt/app-root/tensorflow_model_server
 	
-	
+RUN gcc -v
+
+
+
 RUN curl -fSsL -O https://bootstrap.pypa.io/get-pip.py && \
     python3 get-pip.py && \
     rm get-pip.py
