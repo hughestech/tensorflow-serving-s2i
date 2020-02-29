@@ -85,7 +85,7 @@ RUN mkdir /bazel && \
 
 # Download TF Serving sources (optionally at specific commit).
 WORKDIR /tensorflow-serving
-RUN git clone --branch=${TF_SERVING_VERSION_GIT_BRANCH} https://github.com/tensorflow/serving . && \
+RUN git clone --recurse-submodules --branch=${TF_SERVING_VERSION_GIT_BRANCH} https://github.com/tensorflow/serving . && \
     git remote add upstream https://github.com/tensorflow/serving.git && \
     if [ "${TF_SERVING_VERSION_GIT_COMMIT}" != "head" ]; then git checkout ${TF_SERVING_VERSION_GIT_COMMIT} ; fi
 
