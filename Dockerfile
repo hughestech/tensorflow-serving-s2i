@@ -15,8 +15,8 @@ LABEL io.k8s.description="Tensorflow serving builder" \
       io.openshift.expose-services="6006:http" \
       io.openshift.tags="tensorflow"
       
-ARG TF_SERVING_VERSION_GIT_BRANCH=master
-ARG TF_SERVING_VERSION_GIT_COMMIT=head
+ARG TF_SERVING_VERSION_GIT_BRANCH=2.1.0
+ARG TF_SERVING_VERSION_GIT_COMMIT=d83512c6b5b2b8433df2fd61bbbfb22e0295b3d3
 
 
 LABEL tensorflow_serving_github_branchtag=${TF_SERVING_VERSION_GIT_BRANCH}
