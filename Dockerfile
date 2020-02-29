@@ -56,7 +56,7 @@ RUN yum install -y tree which wget \
 	&& yum clean all -y 
 #	&& wget $TF_SERVING_PACKAGE -P /opt/app-root/ \
 #	&& chmod 777 /opt/app-root/tensorflow_model_server
-
+RUN ln -s /opt/rh/devtoolset-7/root/usr/bin/g++ /usr/local/bin/g++
 RUN which gcc
 RUN gcc -v
 
