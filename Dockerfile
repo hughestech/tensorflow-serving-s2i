@@ -25,7 +25,8 @@ LABEL tensorflow_serving_github_commit=${TF_SERVING_VERSION_GIT_COMMIT}
 
 RUN yum install -y epel-release centos-release-scl devtoolset-8 && source scl_source enable devtoolset-8
 #RUN scl enable devtoolset-7 bash
-RUN source scl_source enable devtoolset-8
+#RUN source scl_source enable devtoolset-8
+RUN scl enable devtoolset-8 bash
 
 ENV CC=/opt/rh/devtoolset-8/root/usr/bin/gcc
 ENV CXX=/opt/rh/devtoolset-/root/usr/bin/g++
