@@ -25,22 +25,7 @@ LABEL tensorflow_serving_github_commit=${TF_SERVING_VERSION_GIT_COMMIT}
 
 RUN yum install -y epel-release
 
-RUN wget http://ftp.gnu.org/gnu/autoconf/autoconf-${AUTOCONF_VERSION}.tar.gz \
-	&& gunzip autoconf-${AUTOCONF_VERSION}.tar.gz \
-	&& tar xvf autoconf-${AUTOCONF_VERSION}.tar \
-	&& cd autoconf-${AUTOCONF_VERSION} \
-	&&  ./configure \
-	&& make \
-	&& make install \
-	&& autoconf --version
-	
-RUN wget http://ftp.gnu.org/gnu/automake/automake-${AUTOMAKE_VERSION}.tar.gz \
-	&& tar xvzf automake-${AUTOMAKE_VERSION}.tar.gz \ 
-	&& cd automake-${AUTOMAKE_VERSION} \ 
-	&& ./configure \ 
-	&& make \ 
-	&& make install \
-	&& automake --version
+
 
 
 RUN yum install -y tree which wget \
