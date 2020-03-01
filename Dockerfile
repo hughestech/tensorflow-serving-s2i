@@ -23,13 +23,13 @@ LABEL tensorflow_serving_github_branchtag=${TF_SERVING_VERSION_GIT_BRANCH}
 LABEL tensorflow_serving_github_commit=${TF_SERVING_VERSION_GIT_COMMIT}
 
 
-RUN yum install -y epel-release centos-release-scl devtoolset-8 && source scl_source enable devtoolset-8
+RUN yum install -y epel-release centos-release-scl devtoolset-7 && source scl_source enable devtoolset-7
 #RUN scl enable devtoolset-7 bash
 #RUN source scl_source enable devtoolset-8
-RUN scl enable devtoolset-8 bash
+RUN scl enable devtoolset-7 bash
 
 ENV HOME=/opt/app-root/src \
-    PATH=/opt/app-root/src/bin:/opt/app-root/bin:/opt/rh/devtoolset-8/root/usr/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    PATH=/opt/app-root/src/bin:/opt/app-root/bin:/opt/rh/devtoolset-7/root/usr/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 #ENV CC=/opt/rh/devtoolset-8/root/usr/bin/gcc
 #ENV CXX=/opt/rh/devtoolset-/root/usr/bin/g++
 #ENV GCC_VERSION=9.2.0
@@ -70,7 +70,7 @@ RUN yum install -y tree which wget devtoolset-8-toolchain \
 	&& yum clean all -y 
 #	&& wget $TF_SERVING_PACKAGE -P /opt/app-root/ \
 #	&& chmod 777 /opt/app-root/tensorflow_model_server
-RUN ln -s /opt/rh/devtoolset-8/root/usr/bin/g++ /usr/local/bin/g++
+RUN ln -s /opt/rh/devtoolset-7/root/usr/bin/g++ /usr/local/bin/g++
 
 WORKDIR ${HOME}
 
