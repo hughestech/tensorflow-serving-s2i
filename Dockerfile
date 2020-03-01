@@ -46,7 +46,7 @@ ENV HOME=/opt/app-root/src \
 #	&& rm -rf gcc-build
 
 
-RUN yum install -y tree which wget devtoolset-8-toolchain \
+RUN yum install -y tree which wget devtoolset-8-toolchain libstdc++-devel \
 	python3 \
         "Development Tools" \
         ca-certificates \
