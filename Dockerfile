@@ -131,7 +131,7 @@ RUN echo "Building with build options: ${TF_SERVING_BUILD_OPTIONS}"
 ARG TF_SERVING_BAZEL_OPTIONS="--config=nativeopt"
 RUN echo "Building with Bazel options: ${TF_SERVING_BAZEL_OPTIONS}"
 
-RUN bazel build --color=yes --curses=yes --cxxopt="-std=c++14" \
+RUN bazel build --color=yes --curses=yes  \
     ${TF_SERVING_BAZEL_OPTIONS} \
     --verbose_failures \
     --output_filter=DONT_MATCH_ANYTHING \
@@ -141,7 +141,7 @@ RUN bazel build --color=yes --curses=yes --cxxopt="-std=c++14" \
     /usr/local/bin/
 
 # Build and install TensorFlow Serving API
-RUN bazel build --color=yes --curses=yes --cxxopt="-std=c++14" \
+RUN bazel build --color=yes --curses=yes  \
     ${TF_SERVING_BAZEL_OPTIONS} \
     --verbose_failures \
     --output_filter=DONT_MATCH_ANYTHING \
