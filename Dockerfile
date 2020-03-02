@@ -29,9 +29,9 @@ RUN yum install -y epel-release centos-release-scl devtoolset-7 && source scl_so
 RUN scl enable devtoolset-7 bash
 
 ENV HOME=/opt/app-root/src \
-    PATH=/opt/app-root/src/bin:/opt/app-root/bin:/opt/rh/devtoolset-7/root/usr/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-#ENV CC=/opt/rh/devtoolset-8/root/usr/bin/gcc
-#ENV CXX=/opt/rh/devtoolset-/root/usr/bin/g++
+    PATH=/opt/app-root/src/bin:/opt/app-root/bin:/opt/rh/devtoolset-7/root/usr/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
+    CC=/opt/rh/devtoolset-7/root/usr/bin/gcc \
+    CXX=/opt/rh/devtoolset-7/root/usr/bin/g++
 #ENV GCC_VERSION=9.2.0
 #RUN yum -y update && yum -y install bzip2 wget gcc gcc-c++ gmp-devel mpfr-devel libmpc-devel make
 #RUN gcc --version
